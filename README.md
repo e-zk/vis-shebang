@@ -2,7 +2,7 @@
 Set [vis](https://github.com/martanne/vis) syntax based on shebang.  
 *Note: This is my first attempt at writing literally anything in Lua; this project is a work in progress.*
 
-# example configuration
+## example configuration
 vis-shebang uses a global variable that maps shebangs to syntaxes, in the following format.
 
     shebangs = {
@@ -23,7 +23,7 @@ Multiple shebangs can also be defined at a time:
         ["#!/usr/bin/env python3"] = "python"
     }
 
-# installation
+## installation
 Copy `vis-shebang.lua` to `$VIS_PATH/plugins`, and include the following line in your `visrc.lua`:
 
     require('plugins/vis-shebang')
