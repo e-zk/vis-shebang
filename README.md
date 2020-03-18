@@ -1,6 +1,6 @@
 # vis-shebang
-[vis](https://github.com/martanne/vis) plugin to syntax based on shebang.  
-*Note: This is my first attempt at writing literally anything in Lua; this project is a work in progress.*
+[vis](https://github.com/martanne/vis) plugin to set syntax based on shebang.  
+*Note: This is my first attempt at writing literally anything in Lua; this project is very much a work in progress. Please open an issue if you find any errors :)*
 
 ## example configuration
 vis-shebang uses a global variable that maps shebangs to syntaxes, in the following format.
