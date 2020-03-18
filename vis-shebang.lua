@@ -12,17 +12,17 @@
 -- desired syntax. (`set syntax <...>`)
 
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
+	-- if the shebangs variable is undefined, do nothing
+	if shebangs == nil then return end
 
 	-- grab the first line
 	local shebang = vis.win.file.lines[1]
 
-	-- if the shebangs variable is undefined, do nothing
-	if shebangs == nil then return end
-
 	-- grab the desired syntax for the current file's shebang;
-	-- if the syntax is undefined, then do nothing
+	-- if no syntax is undefined for the current shebang, then do nothing
 	local shebang_syntax = shebangs[shebang]
 	if shebang_syntax == nil then return end
 
+	-- set the syntax
 	vis:command("set syntax " .. shebang_syntax)
 end)
