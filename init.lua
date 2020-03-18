@@ -1,20 +1,28 @@
--- vis-shebangsyntax
--- sets syntax command based on the first line of the file opened
+-- vis-shebang
+-- plugin that sets syntax based on the first line of the file opened
+--
+-- expects a 'shebangs' variable to be defined:
+--
+--	shebangs = {
+--		["#!/bin/sh"] = "bash",
+--		["#!/usr/bin/env python3"] = "python"
+--	}
+--
+-- this variable maps shebangs (strings at the start of the file) to the
+-- desired syntax. (`set syntax <...>`)
 
--- if String starts with Start substring
-function string.starts(String,Start)
-        return string.sub(String,1,string.len(Start))==Start
-end
-
--- main logic
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
-	-- grab the first line
-        local shebang = vis.win.file.lines[1]
 
-	-- 
-        if(string.starts(shebang, "#!/bin/sh")) then
-                vis:command('set syntax bash')
-        elseif(string.starts(shebang, "#!/usr/bin/env python3")) then
-                vis:command('set syntax python')
-        end
+	-- grab the first line
+	local shebang = vis.win.file.lines[1]
+
+	-- if the shebangs variable is undefined, do nothing
+	if shebangs == nil then return end
+
+	-- grab the desired syntax for the current file's shebang;
+	-- if the syntax is undefined, then do nothing
+	local shebang_syntax = shebangs[shebang]
+	if shebang_syntax == nil then return end
+
+	vis:command("set syntax " .. shebang_syntax)
 end)
