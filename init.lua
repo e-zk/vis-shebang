@@ -1,4 +1,5 @@
 -- vis-shebang
+-- https://github.com/e-zk/vis-shebang
 -- plugin that sets syntax based on the first line of the file opened
 --
 -- expects a 'shebangs' variable to be defined:
@@ -8,8 +9,8 @@
 --		["#!/usr/bin/env python3"] = "python"
 --	}
 --
--- this variable maps shebangs (strings at the start of the file) to the
--- desired syntax. (`set syntax <...>`)
+-- this variable maps shebang strings to the
+-- desired syntax. (runs `set syntax <...>`)
 
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
 	-- if the shebangs variable is undefined, do nothing
