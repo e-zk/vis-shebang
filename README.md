@@ -28,8 +28,9 @@ Multiple shebangs can be defined at a time:
         ["#!/usr/bin/env python3"] = "python"
     }
 
-# installation
----------------
+installation
+-------------
+
 Clone this repo to `$VIS_PATH/plugins/vis-shebang` and a require line to `visrc.lua`:
 
     require('plugins/vis-shebang')
